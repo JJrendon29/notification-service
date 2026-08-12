@@ -38,7 +38,7 @@ async def process_notification(ctx, notification_id: int):
             session.commit()
 
             logger.info(f"Notification {notification_id} delivered successfully")
-            raise Exception("Simulando fallo del servidor de notificaciones")
+            
 
         except Exception as e:
             notification.last_error = str(e)
