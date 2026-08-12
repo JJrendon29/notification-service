@@ -1,0 +1,10 @@
+fastapi[standard]
+uvicorn[standard]
+sqlmodel
+psycopg2-binary
+redis
+arq
+python-dotenv
+pydantic-settings
+pytest
+httpx
