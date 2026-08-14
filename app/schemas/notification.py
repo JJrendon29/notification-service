@@ -2,16 +2,17 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 from app.models.notification import NotificationStatus
+from pydantic import BaseModel, EmailStr
 
 
 class NotificationCreate(BaseModel):
-    recipient: str
+    recipient: EmailStr
     message: str
 
 
 class NotificationResponse(BaseModel):
     id: int
-    recipient: str
+    recipient: EmailStr
     message: str
     status: NotificationStatus
     attempts: int

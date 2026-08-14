@@ -15,6 +15,10 @@ function escapeHtml(text) {
     .replace(/>/g, '&gt;')
 }
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
 async function sendNotification() {
   const recipient = document.getElementById('recipient-input').value.trim()
   const message = document.getElementById('message-input').value.trim()
@@ -31,6 +35,12 @@ async function sendNotification() {
     errorMsg.textContent = 'Completá el destinatario y el mensaje.'
     errorMsg.classList.remove('hidden')
     return
+  }
+
+  if (!isValidEmail(recipient)) {
+  errorMsg.textContent = 'Ingresá un email válido.'
+  errorMsg.classList.remove('hidden')
+  return
   }
 
   btn.disabled = true
