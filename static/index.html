@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-title">notification service</span>
+    <span class="topbar-badge" id="worker-badge">worker activo</span>
+  </div>
+
+  <div class="container">
+
+    <div class="card" style="margin-bottom: 16px;">
+      <div class="card-title">Nueva notificación</div>
+
+      <label for="recipient-input">Destinatario</label>
+      <input type="text" id="recipient-input" placeholder="usuario@email.com" />
+
+      <label for="message-input">Mensaje</label>
+      <input type="text" id="message-input" placeholder="Escribe el mensaje aquí..." />
+
+      <button class="btn" id="send-btn" onclick="sendNotification()">Enviar notificación</button>
+
+      <div class="response-box hidden" id="response-box">
+        <div class="response-status" id="response-status"></div>
+        <div class="response-detail" id="response-detail"></div>
+      </div>
+
+      <div class="error-msg hidden" id="error-msg"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Notificaciones</div>
+        <div class="filter-row">
+          <button class="filter-btn active" onclick="setFilter(this, 'all')">Todas</button>
+          <button class="filter-btn" onclick="setFilter(this, 'pending')">Pendientes</button>
+          <button class="filter-btn" onclick="setFilter(this, 'processing')">Procesando</button>
+          <button class="filter-btn" onclick="setFilter(this, 'delivered')">Entregadas</button>
+          <button class="filter-btn" onclick="setFilter(this, 'failed')">Fallidas</button>
+        </div>
+      </div>
+
+      <div id="notifications-list"></div>
+      <div class="empty-state hidden" id="empty-state">No hay notificaciones todavía.</div>
+    </div>
+
+    <div class="docs-link">
+      <a href="/docs" target="_blank">Ver documentación de la API →</a>
+    </div>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+
+</body>
+</html>
