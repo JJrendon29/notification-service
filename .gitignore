@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Entorno
+.env
+
+# Virtual env
+venv/
+.venv/
+
+# IDE
+.vscode/
+
+# Runner
+actions-runner/
